@@ -14,16 +14,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper --gradle-version 8.4
-
       - name: Make gradlew executable
         run: chmod +x gradlew
 
-      - name: Build APK with gradlew
+      - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK Artifact
