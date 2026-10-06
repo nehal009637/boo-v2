@@ -6,37 +6,17 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = android.view.Gravity.CENTER
-            setPadding(50, 50, 50, 50)
+        findViewById<Button>(R.id.btnOrb).setOnClickListener {
+            checkOverlayPermissionAndStart()
         }
-
-        val tv = TextView(this).apply {
-            text = "BOO V2 - Control Panel"
-            textSize = 24f
-            gravity = android.view.Gravity.CENTER
-        }
-
-        val btn = Button(this).apply {
-            text = "Launch Floating Orb"
-            setOnClickListener {
-                checkOverlayPermissionAndStart()
-            }
-        }
-
-        layout.addView(tv)
-        layout.addView(btn)
-        setContentView(layout)
     }
 
     private fun checkOverlayPermissionAndStart() {
