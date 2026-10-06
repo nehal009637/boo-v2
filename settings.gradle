@@ -1,0 +1,2 @@
+rootProject.name = "BOO-V2"
+include ':app'
